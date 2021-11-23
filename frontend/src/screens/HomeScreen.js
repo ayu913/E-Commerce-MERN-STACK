@@ -5,21 +5,23 @@ import Product from "../components/Product"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
 import { listProducts } from "../actions/productActions"
+import Paginate from "../components/Paginate"
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
+  const pageNumber = match.params.pageNumber || 1
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => {
     return state.productList
   })
-  const { loading, error, products } = productList
+  const { loading, error, products, page, pages } = productList
   console.log(productList)
   console.log(products)
 
   useEffect(() => {
-    dispatch(listProducts(keyword))
-  }, [dispatch, keyword])
+    dispatch(listProducts(keyword, pageNumber))
+  }, [dispatch, keyword, pageNumber])
 
   return (
     <React.Fragment>
@@ -31,14 +33,17 @@ const HomeScreen = ({ match }) => {
       ) : (
         <>
           <Row>
-            {products.map((product) => {
-              return (
-                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                  <Product product={product} />
-                </Col>
-              )
-            })}
+            {products.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
           </Row>
+          <Paginate
+            pages={pages}
+            page={page}
+            keyword={keyword ? keyword : ""}
+          />
         </>
       )}
     </React.Fragment>
