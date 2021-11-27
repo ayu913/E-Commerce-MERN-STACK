@@ -22,7 +22,11 @@ const SearchBox = ({ history }) => {
         placeholder='Search Products...'
         className='mr-sm-2 ml-sm-5'
       ></Form.Control>
-      <Button type='submit' variant='dark' className='p-2 mx-2'>
+      <Button
+        type='submit'
+        variant='outline-primary'
+        className='p-2 mx-2 text-dark'
+      >
         Search
       </Button>
     </Form>
@@ -30,10 +34,3 @@ const SearchBox = ({ history }) => {
 }
 
 export default SearchBox
-
-{
-  /* <form class="d-flex">
-<input class="form-control me-sm-2" type="text" placeholder="Search">
-<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-</form> */
-}

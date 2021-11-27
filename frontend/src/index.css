@@ -32,22 +32,24 @@ h2 {
 .carousel-caption {
   position: absolute;
   top: 0;
-  margin: auto;
 }
 
 .carousel-caption h2 {
-  color: #fff;
+  color: #000;
 }
 
 .carousel img {
-  height: 300px;
-  padding: 30px;
-  width: auto;
-  margin-top: 90px;
-  margin: auto;
+  height: 380px;
+  padding: 80px;
   border-radius: 50%;
+  margin: auto;
   display: flex;
 }
 .carousel a {
   margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
 }
