@@ -20,7 +20,7 @@ const HomeScreen = ({ match }) => {
   })
   const { loading, error, products, page, pages } = productList
   console.log(productList)
-  console.log(products)
+  console.log("products", products)
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber))
